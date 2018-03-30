@@ -1,0 +1,33 @@
+#!/bin/sh
+app_name=fds_server
+app_dir=/usr/local/sunlight/cdn/fds/bin
+
+# The execute file
+
+cd $app_dir
+
+EXEC_CMD=./$app_name 
+
+PARAM=$1
+APP_PID=`ps -e -o pid,args | grep ./$app_name | grep -v grep | grep -v startup.sh | cut -b 1-6`
+
+# Execute the program
+if [ -n "$PARAM" ]; then
+        if [ $PARAM = "-v" ]; then
+        	$EXEC_CMD $1
+        	exit 0
+        else
+			echo "Usage: start.sh  [-v]"
+			exit 0
+		fi        
+else
+		if [ ! -z "${APP_PID}" ]; then
+			echo "hls has already started: " ${APP_PID}. " Please stop it first."
+			exit 1
+		fi
+		
+		ulimit -c unlimited
+		nohup $EXEC_CMD -d -c /usr/local/content/cdn/vms -p 10190 &
+
+fi
+

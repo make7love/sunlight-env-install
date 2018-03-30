@@ -1,0 +1,239 @@
+OsalSetCoredump..........
+OsalTraceStart..........
+Trace started!
+OsalShellInit..........
+[2017-09-22 14:39:09:984] OsalShellInit:: Load shell: ip=0 port=10133 ..........
+[2017-09-22 14:39:09:987] SystemInit:: Booting VMS server ........
+[2017-09-22 14:39:09:987] SystemInit:: GetSysStartTime ........
+[2017-09-22 14:39:09:987] GetSysStartTime:: 2017-09-22 14:39:09
+[2017-09-22 14:39:09:987] SystemInit:: InitTaskMonitor ........
+[2017-09-22 14:39:09:987] SystemInit:: ReadConfig ........
+[2017-09-22 14:39:09:988] InitVodDb:: DB HeadID = 0x248def13579abc  Version = 2
+[2017-09-22 14:39:09:988] CheckVodDb:: No.43:  mVodCid=503996:503996
+
+[2017-09-22 14:39:09:988] CheckVodDb ERROR!!
+vod file not exist! vod: 503996
+
+[2017-09-22 14:39:09:003] DelteVodFile:: ret:0 shellCmd:rm -rf /usr/local/content/vms/vod/503996*
+[2017-09-22 14:39:09:003] DeleteVodByIdx:: Deleted vodIdx 43.
+[2017-09-22 14:39:09:004] CheckVodDb:: No.44:  mVodCid=503991:503991
+
+[2017-09-22 14:39:09:004] CheckVodDb ERROR!!
+vod file not exist! vod: 503991
+
+[2017-09-22 14:39:10:395] DelteVodFile:: ret:0 shellCmd:rm -rf /usr/local/content/vms/vod/503991*
+[2017-09-22 14:39:10:395] DeleteVodByIdx:: Deleted vodIdx 44.
+[2017-09-22 14:39:10:396] CheckVodDb:: No.49:  mVodCid=502300:502300
+
+[2017-09-22 14:39:10:396] CheckVodDb ERROR!!
+vod file not exist! vod: 502300
+
+[2017-09-22 14:39:10:403] DelteVodFile:: ret:0 shellCmd:rm -rf /usr/local/content/vms/vod/502300*
+[2017-09-22 14:39:10:403] DeleteVodByIdx:: Deleted vodIdx 49.
+[2017-09-22 14:39:10:404] CheckVodDb:: No.50:  mVodCid=1999998:1999998
+
+[2017-09-22 14:39:10:404] CheckVodDb ERROR!!
+vod file not exist! vod: 1999998
+
+[2017-09-22 14:39:10:407] DelteVodFile:: ret:0 shellCmd:rm -rf /usr/local/content/vms/vod/1999998*
+[2017-09-22 14:39:10:407] DeleteVodByIdx:: Deleted vodIdx 50.
+[2017-09-22 14:39:10:408] CheckVodDb:: No.51:  mVodCid=1999999:1999999
+
+[2017-09-22 14:39:10:408] CheckVodDb ERROR!!
+vod file not exist! vod: 1999999
+
+[2017-09-22 14:39:10:411] DelteVodFile:: ret:0 shellCmd:rm -rf /usr/local/content/vms/vod/1999999*
+[2017-09-22 14:39:10:411] DeleteVodByIdx:: Deleted vodIdx 51.
+[2017-09-22 14:39:10:412] CheckVodDb:: No.55:  mVodCid=503977:503977
+
+[2017-09-22 14:39:10:412] CheckVodDb ERROR!!
+vod file not exist! vod: 503977
+
+[2017-09-22 14:39:10:415] DelteVodFile:: ret:0 shellCmd:rm -rf /usr/local/content/vms/vod/503977*
+[2017-09-22 14:39:10:415] DeleteVodByIdx:: Deleted vodIdx 55.
+[2017-09-22 14:39:10:415] CheckVodDb:: No.56:  mVodCid=503663:503663
+
+[2017-09-22 14:39:10:415] CheckVodDb ERROR!!
+vod file not exist! vod: 503663
+
+[2017-09-22 14:39:10:462] DelteVodFile:: ret:0 shellCmd:rm -rf /usr/local/content/vms/vod/503663*
+[2017-09-22 14:39:10:462] DeleteVodByIdx:: Deleted vodIdx 56.
+[2017-09-22 14:39:10:463] CheckVodDb:: Total vodCnt=0
+[2017-09-22 14:39:10:464] SystemInit:: LoadHttpMod ........
+[2017-09-22 14:39:10:464] HttpListenOpen:: a new http listener opened! idx=0 socket=6 ip=0.0.0.0:10120
+[2017-09-22 14:39:10:464] HttpListenOpen:: a new http listener opened! idx=1 socket=7 ip=0.0.0.0:10121
+[2017-09-22 14:39:10:464] SystemInit:: LoadMp2pMod ........
+[2017-09-22 14:39:10:464] Mp2pAppModReg:: modId:258 ip:0xc0a858c1:10173
+[2017-09-22 14:39:10:465] Mp2pTrptSrvStart:: local ip: 192.168.88.193:10173
+[2017-09-22 14:39:10:465] Mp2pTrptUdpMsgRecvThread:: Enter Mp2pTrptUdpMsgRecvThread...
+[2017-09-22 14:39:10:466] Mp2pTrptTcpServerThread:: Enter Mp2pTrptTcpServerThread...
+[2017-09-22 14:39:10:466] Mp2pTrptTcpClientThread:: Enter Mp2pTrptTcpClientThread...
+[2017-09-22 14:39:10:471] MonitorTaskProc:: sub mod 2 -> monitor 1 is running....
+[2017-09-22 14:39:10:482] MonitorTaskProc:: sub mod 100 -> monitor 2 is running....
+[2017-09-22 14:39:10:492] MonitorTaskProc:: sub mod 101 -> monitor 3 is running....
+[2017-09-22 14:39:10:502] MonitorTaskProc:: sub mod 102 -> monitor 4 is running....
+[2017-09-22 14:39:10:512] MonitorTaskProc:: sub mod 103 -> monitor 5 is running....
+[2017-09-22 14:39:10:522] MonitorTaskProc:: sub mod 104 -> monitor 6 is running....
+[2017-09-22 14:39:10:532] MonitorTaskProc:: sub mod 4 -> monitor 7 is runninOsalSetCoredump..........
+OsalTraceStart..........
+Trace started!
+OsalShellInit..........
+[2017-10-13 17:28:47:618] OsalShellInit:: Load shell: ip=0 port=10133 ..........
+[2017-10-13 17:28:47:620] SystemInit:: Booting VMS server ........
+[2017-10-13 17:28:47:620] SystemInit:: GetSysStartTime ........
+[2017-10-13 17:28:47:620] GetSysStartTime:: 2017-10-13 17:28:47
+[2017-10-13 17:28:47:620] SystemInit:: InitTaskMonitor ........
+[2017-10-13 17:28:47:620] SystemInit:: ReadConfig ........
+[2017-10-13 17:28:47:621] InitVodDb:: DB HeadID = 0x248def13579abc  Version = 2
+[2017-10-13 17:28:47:621] CheckVodDb:: No.0:  mVodCid=980002:980002
+[2017-10-13 17:28:47:621] CheckVodDb:: No.1:  mVodCid=98016:98016
+[2017-10-13 17:28:47:621] CheckVodDb:: No.2:  mVodCid=990001:990001
+[2017-10-13 17:28:47:621] CheckVodDb:: No.3:  mVodCid=980003:980003
+[2017-10-13 17:28:47:621] CheckVodDb:: No.4:  mVodCid=98000:98000
+[2017-10-13 17:28:47:621] CheckVodDb:: No.5:  mVodCid=980005:980005
+[2017-10-13 17:28:47:621] CheckVodDb:: No.6:  mVodCid=980006:980006
+[2017-10-13 17:28:47:621] CheckVodDb:: No.9:  mVodCid=980007:980007
+[2017-10-13 17:28:47:621] CheckVodDb:: No.10:  mVodCid=990002:990002
+[2017-10-13 17:28:47:621] CheckVodDb:: No.11:  mVodCid=990155:990155
+[2017-10-13 17:28:47:621] CheckVodDb:: No.12:  mVodCid=990156:990156
+[2017-10-13 17:28:47:621] CheckVodDb:: No.13:  mVodCid=990160:990160
+[2017-10-13 17:28:47:621] CheckVodDb:: No.14:  mVodCid=990161:990161
+[2017-10-13 17:28:47:621] CheckVodDb:: No.15:  mVodCid=980165:980165
+
+[2017-10-13 17:28:47:621] IsVodFileExist ERROR!!
+vod file not exist! vod: 980165
+
+
+[2017-10-13 17:28:47:621] CheckVodDb ERROR!!
+vod file not exist! vod: 980165
+
+[2017-10-13 17:28:47:621] CheckVodDb:: No.16:  mVodCid=980167:980167
+
+[2017-10-13 17:28:47:621] IsVodFileExist ERROR!!
+vod file not exist! vod: 980167
+
+
+[2017-10-13 17:28:47:621] CheckVodDb ERROR!!
+vod file not exist! vod: 980167
+
+[2017-10-13 17:28:47:621] CheckVodDb:: No.17:  mVodCid=990003:990003
+[2017-10-13 17:28:47:621] CheckVodDb:: No.18:  mVodCid=980168:980168
+
+[2017-10-13 17:28:47:621] IsVodFileExist ERROR!!
+vod file not exist! vod: 980168
+
+
+[2017-10-13 17:28:47:621] CheckVodDb ERROR!!
+vod file not exist! vod: 980168
+
+[2017-10-13 17:28:47:621] CheckVodDb:: No.19:  mVodCid=980156:980156
+[2017-10-13 17:28:47:621] CheckVodDb:: No.20:  mVodCid=980161:980161
+
+[2017-10-13 17:28:47:621] IsVodFileExist ERROR!!
+vod file not exist! vod: 980161
+
+
+[2017-10-13 17:28:47:621] CheckVodDb ERROR!!
+vod file not exist! vod: 980161
+
+[2017-10-13 17:28:47:621] CheckVodDb:: No.21:  mVodCid=990004:990004
+[2017-10-13 17:28:47:622] CheckVodDb:: Total vodCnt=20
+[2017-10-13 17:28:47:623] SystemInit:: LoadHttpMod ........
+[2017-10-13 17:28:47:623] HttpListenOpen:: a new http listener opened! idx=0 socket=6 ip=0.0.0.0:10120
+[2017-10-13 17:28:47:623] HttpListenOpen:: a new http listener opened! idx=1 socket=7 ip=0.0.0.0:10121
+[2017-10-13 17:28:47:623] SystemInit:: LoadMp2pMod ........
+[2017-10-13 17:28:47:623] Mp2pAppModReg:: modId:258 ip:0xc0a85887:10173
+[2017-10-13 17:28:47:624] Mp2pTrptSrvStart:: local ip: 192.168.88.135:10173
+[2017-10-13 17:28:47:624] MonitorTaskProc:: sub mod 2 -> monitor 1 is running....
+[2017-10-13 17:28:47:624] Mp2pTrptUdpMsgRecvThread:: Enter Mp2pTrptUdpMsgRecvThread...
+[2017-10-13 17:28:47:624] Mp2pTrptTcpServerThread:: Enter Mp2pTrptTcpServerThread...
+[2017-10-13 17:28:47:624] Mp2pTrptTcpClientThread:: Enter Mp2pTrptTcpClientThread...
+[2017-10-13 17:28:47:634] MonitorTaskProc:: sub mod 100 -> monitor 2 is running....
+[2017-10-13 17:28:47:644] MonitorTaskProc:: sub mod 101 -> monitor 3 is running....
+[2017-10-13 17:28:47:654] MonitorTaskProc:: sub mod 102 -> monitor 4 is running....
+[2017-10-13 17:28:47:665] MonitorTaskProc:: sub mod 103 -> monitor 5 is running....
+[2017-10-13 17:28:47:675] MonitorTaskProc:: sub mod 104 -> monitor 6 is running....
+[2017-10-13 17:28:47:685] MonitorTaskProc:: sub mod 4 -> monitor 7 is running....
+[2017-10-13 17:28:47:695] MonitorTaskProc:: sub mod 1 -> monitor 8 is running....
+[2017-10-13 17:28:47:735] VmsLoginRspProc:: Login to NM 192OsalSetCoredump..........
+OsalTraceStart..........
+Trace started!
+OsalShellInit..........
+[2017-10-13 17:47:39:889] OsalShellInit:: Load shell: ip=0 port=10133 ..........
+[2017-10-13 17:47:39:892] SystemInit:: Booting VMS server ........
+[2017-10-13 17:47:39:892] SystemInit:: GetSysStartTime ........
+[2017-10-13 17:47:39:892] GetSysStartTime:: 2017-10-13 17:47:39
+[2017-10-13 17:47:39:892] SystemInit:: InitTaskMonitor ........
+[2017-10-13 17:47:39:892] SystemInit:: ReadConfig ........
+[2017-10-13 17:47:39:892] InitVodDb:: DB HeadID = 0x248def13579abc  Version = 2
+[2017-10-13 17:47:39:892] CheckVodDb:: No.0:  mVodCid=980002:980002
+[2017-10-13 17:47:39:892] CheckVodDb:: No.1:  mVodCid=98016:98016
+[2017-10-13 17:47:39:892] CheckVodDb:: No.2:  mVodCid=990001:990001
+[2017-10-13 17:47:39:892] CheckVodDb:: No.3:  mVodCid=980003:980003
+[2017-10-13 17:47:39:892] CheckVodDb:: No.4:  mVodCid=98000:98000
+[2017-10-13 17:47:39:892] CheckVodDb:: No.5:  mVodCid=980005:980005
+[2017-10-13 17:47:39:892] CheckVodDb:: No.6:  mVodCid=980006:980006
+[2017-10-13 17:47:39:892] CheckVodDb:: No.9:  mVodCid=980007:980007
+[2017-10-13 17:47:39:892] CheckVodDb:: No.10:  mVodCid=990002:990002
+[2017-10-13 17:47:39:892] CheckVodDb:: No.11:  mVodCid=990155:990155
+[2017-10-13 17:47:39:893] CheckVodDb:: No.12:  mVodCid=990156:990156
+[2017-10-13 17:47:39:893] CheckVodDb:: No.13:  mVodCid=990160:990160
+[2017-10-13 17:47:39:893] CheckVodDb:: No.14:  mVodCid=990161:990161
+[2017-10-13 17:47:39:893] CheckVodDb:: No.15:  mVodCid=980165:980165
+
+[2017-10-13 17:47:39:893] IsVodFileExist ERROR!!
+vod file not exist! vod: 980165
+
+
+[2017-10-13 17:47:39:893] CheckVodDb ERROR!!
+vod file not exist! vod: 980165
+
+[2017-10-13 17:47:39:893] CheckVodDb:: No.16:  mVodCid=980167:980167
+
+[2017-10-13 17:47:39:893] IsVodFileExist ERROR!!
+vod file not exist! vod: 980167
+
+
+[2017-10-13 17:47:39:893] CheckVodDb ERROR!!
+vod file not exist! vod: 980167
+
+[2017-10-13 17:47:39:893] CheckVodDb:: No.17:  mVodCid=990003:990003
+[2017-10-13 17:47:39:893] CheckVodDb:: No.18:  mVodCid=980168:980168
+
+[2017-10-13 17:47:39:893] IsVodFileExist ERROR!!
+vod file not exist! vod: 980168
+
+
+[2017-10-13 17:47:39:893] CheckVodDb ERROR!!
+vod file not exist! vod: 980168
+
+[2017-10-13 17:47:39:893] CheckVodDb:: No.19:  mVodCid=980156:980156
+[2017-10-13 17:47:39:893] CheckVodDb:: No.20:  mVodCid=980161:980161
+
+[2017-10-13 17:47:39:893] IsVodFileExist ERROR!!
+vod file not exist! vod: 980161
+
+
+[2017-10-13 17:47:39:893] CheckVodDb ERROR!!
+vod file not exist! vod: 980161
+
+[2017-10-13 17:47:39:893] CheckVodDb:: No.21:  mVodCid=990004:990004
+[2017-10-13 17:47:39:894] CheckVodDb:: Total vodCnt=20
+[2017-10-13 17:47:39:895] SystemInit:: LoadHttpMod ........
+[2017-10-13 17:47:39:895] HttpListenOpen:: a new http listener opened! idx=0 socket=6 ip=0.0.0.0:10120
+[2017-10-13 17:47:39:895] HttpListenOpen:: a new http listener opened! idx=1 socket=7 ip=0.0.0.0:10121
+[2017-10-13 17:47:39:895] SystemInit:: LoadMp2pMod ........
+[2017-10-13 17:47:39:896] Mp2pAppModReg:: modId:258 ip:0xc0a85887:10173
+[2017-10-13 17:47:39:898] MonitorTaskProc:: sub mod 2 -> monitor 1 is running....
+[2017-10-13 17:47:39:899] Mp2pTrptSrvStart:: local ip: 192.168.88.135:10173
+[2017-10-13 17:47:39:899] Mp2pTrptUdpMsgRecvThread:: Enter Mp2pTrptUdpMsgRecvThread...
+[2017-10-13 17:47:39:899] Mp2pTrptTcpServerThread:: Enter Mp2pTrptTcpServerThread...
+[2017-10-13 17:47:39:899] Mp2pTrptTcpClientThread:: Enter Mp2pTrptTcpClientThread...
+[2017-10-13 17:47:39:908] MonitorTaskProc:: sub mod 100 -> monitor 2 is running....
+[2017-10-13 17:47:39:919] MonitorTaskProc:: sub mod 101 -> monitor 3 is running....
+[2017-10-13 17:47:39:929] MonitorTaskProc:: sub mod 102 -> monitor 4 is running....
+[2017-10-13 17:47:39:939] MonitorTaskProc:: sub mod 103 -> monitor 5 is running....
+[2017-10-13 17:47:39:949] MonitorTaskProc:: sub mod 104 -> monitor 6 is running....
+[2017-10-13 17:47:39:959] MonitorTaskProc:: sub mod 4 -> monitor 7 is running....
+[2017-10-13 17:47:39:969] MonitorTaskProc:: sub mod 1 -> monitor 8 is running....
+[2017-10-13 17:47:40:010] VmsLoginRspProc:: Login to NM 192

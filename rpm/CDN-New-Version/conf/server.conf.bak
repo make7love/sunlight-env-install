@@ -1,0 +1,17 @@
+hostid=0
+dbhost=192.168.88.137
+dbport=3306
+dbname=sdb30
+dbuser=root
+dbpass=
+epg_secret_key=sunlight_key
+is_redis_cluster=0
+redis_ip=
+redis_port=6379
+
+
+httpport=80
+saaaport=8088
+smsport=7777
+inneraddr=192.168.88.138
+outeraddr=192.168.88.138

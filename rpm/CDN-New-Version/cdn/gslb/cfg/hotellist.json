@@ -1,0 +1,1 @@
+{"Message":{"MessageType":"VOD_ROUTE_TOPO_REQ","MessageBody":{"ResultCode":200,"ResultDesc":"\u64cd\u4f5c\u6210\u529f","HotelList":[{"HotelId": "123","NmId": "1","BackupNmId": ""}]}}}

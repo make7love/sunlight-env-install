@@ -1,0 +1,1 @@
+{"Message":{"MessageType":"VOD_DISTRIBUTION_TOPO_REQ","MessageBody":{"ResultCode":200,"ResultDesc":"OperationSuccess","NmList":[{"NmId":"1","ParentNmId":""}]}}}

@@ -1,0 +1,190 @@
+#!/bin/bash
+
+if [ -z "$base_path" ];then
+	base_path=$(cd `dirname $0`;pwd)
+	opt_path="$base_path"
+else
+	opt_path="$base_path/rpm/weed"
+fi
+
+
+function Create_Weed_Install_Log()
+{
+	echo -e "$*" >> ./weed_install.log
+}
+
+function Get_Node_IP()
+{
+	local weed_node_ip
+	local weed_node_ip_sure
+
+	while true
+	do
+		echo "请输入这台服务器的IP地址:"
+		echo -n "Please Input This Server IP:"
+		read weed_node_ip
+		echo -n "Are You Sure About This? [y/n]"
+		read weed_node_ip_sure
+		if [ "$weed_node_ip_sure" == "y" ] ||[ "$weed_node_ip_sure" == "Y" ];then
+			break
+		fi
+	done
+	echo $weed_node_ip
+}
+
+function Get_Peer_IP()
+{
+	local weed_peer_ips
+	local weed_peer_ips_sure
+
+	while true
+	do
+		echo "请输入三台应用节点的IP地址（IP地址升序），使用逗号分隔："
+		echo -n "Please Input Three Node's  Server's IP, Use ',' To Split :"
+		read weed_peer_ips
+		echo -n "Are You Sure About This? [y/n]"
+		read weed_peer_ips_sure
+		if [ "$weed_peer_ips_sure" == "y" ] || [ "$weed_peer_ips_sure" == "Y" ];then
+			break
+		fi
+	done
+	echo $weed_peer_ips
+}
+
+function_name="Write_Log"
+if [ "$(type -t $function_name)" != "function" ];then
+	write_install_log="Create_Weed_Install_Log"
+else
+	write_install_log="Write_Log"
+fi
+
+eval "$write_install_log  'Begin To Install Weed ......'"
+
+
+
+if [ $(grep "sunlight" /etc/group | wc -l) -lt 1 ];then
+			groupadd sunlight
+fi
+
+if [ $(grep "sunlight" /etc/passwd | wc -l) -lt 1 ];then
+	useradd -g sunlight -G wheel -d /home/sunlight/ -m sunlight
+fi
+
+eval "$write_install_log  'Check sunlight:sunlight'"
+
+weed_pid=$(ps -ef | grep "/usr/local/sunlight/weed" | grep -v grep | wc -l)
+
+if [ $weed_pid -gt 0 ];then
+	echo "Yes! Weed Is Running......Skipping."
+	eval "$write_install_log  'Yes! Weed Is Running......'"
+else
+	if [ ! -d /usr/local/sunlight ];then
+		mkdir /usr/local/sunlight
+		chmod 755 /usr/local/sunlight
+	fi
+
+	eval "$write_install_log  'Check Directory /usr/local/sunlight ......'"
+
+	if [ ! -d /var/www/weedfs ];then
+		mkdir /var/www/weedfs
+		chmod 755 /var/www/weedfs
+	fi
+	chown sunlight:sunlight  /var/www/weedfs
+
+	eval "$write_install_log  'Check Directory /var/www/weedfs And Permissions ......'"
+
+	if [ ! -d /var/log/sweed ];then
+		mkdir /var/log/sweed
+	fi
+	chmod 755 /var/log/sweed
+	chown sunlight:sunlight /var/log/sweed
+
+	eval "$write_install_log  'Check Directory /var/log/sweed And Permissions ......'"
+
+	cp "$opt_path/weed/weed" /usr/local/sunlight/
+	chmod +x /usr/local/sunlight/weed
+
+	eval "$write_install_log  'cp /usr/local/sunlight/weed exec file ......'"
+
+	if [ -z "$server_ip" ];then
+		while true
+		do
+			echo "请输入这台服务器的IP地址:"
+			echo -n "Please Input This Server IP:"
+			read server_ip
+			echo -n "Are You Sure About This? [y/n]"
+			read weed_node_ip_sure
+			if [ "$weed_node_ip_sure" == "y" ] ||[ "$weed_node_ip_sure" == "Y" ];then
+				break
+			fi
+		done
+	fi
+
+	eval "$write_install_log  get server_ip : ${server_ip}"
+
+	if [ -z "$cluster_ip" ];then
+		while true
+		do
+			echo "请输入三台应用节点的IP地址（IP地址升序），使用逗号分隔："
+			echo -n "Please Input Three Node's  Server's IP, Use ',' To Split :"
+			read cluster_ip
+			echo -n "Are You Sure About This? [y/n]"
+			read weed_peer_ips_sure
+			if [ "$weed_peer_ips_sure" == "y" ] || [ "$weed_peer_ips_sure" == "Y" ];then
+				break
+			fi
+		done
+	fi
+
+	cluster_ip=${cluster_ip//,/ }
+	weed_cluster_array=(${cluster_ip})
+	weed_cluster_string=""
+	for wd_ip in ${weed_cluster_array[@]}
+	do
+		if [ "$wd_ip" != "$server_ip" ];then
+			weed_cluster_string=$weed_cluster_string$wd_ip":9333,"
+		fi
+	done
+
+	weed_cluster_str_init=${weed_cluster_string%%,}
+	init_weed_str="nohup /usr/local/sunlight/weed -log_dir=/var/log/sweed/ server -ip ${server_ip} -master.port=9333 -master.defaultReplicaPlacement=001 -dir=/var/www/weedfs -volume.port=8180  -volume.max=10 -master.peers=${weed_cluster_str_init} >> /var/log/sweed/sweed_init.log 2>&1  &"
+	echo $init_weed_str > /usr/local/sunlight/init_weed.sh
+	chmod +x /usr/local/sunlight/init_weed.sh
+
+	eval "$write_install_log  get init_weed_str : ${init_weed_str}"
+
+	#sh /usr/local/sunlight/weed_init.sh	
+	sleep 2
+
+	if [ ! -f /usr/local/sunlight/proc_list ];then
+		touch /usr/local/sunlight/proc_list
+	fi
+
+	eval "$write_install_log Check File /usr/local/sunlight/proc_list "
+
+	if [ $(grep "/usr/local/sunlight/weed" /usr/local/sunlight/proc_list | wc -l) -lt 1 ];then
+		weed_smon_init_str="root /usr/local/sunlight/weed /usr/bin/sh /usr/local/sunlight/init_weed.sh"
+		echo $weed_smon_init_str >> /usr/local/sunlight/proc_list
+		echo "******WeedFS Has Been Configed Into Smon******"
+		eval "$write_install_log get weed_smon_init_str : ${weed_smon_init_str}"
+	fi
+
+	if [ $(ps -ef | grep smon | grep -v grep | wc -l) -gt 0 ];then
+		pkill -9 smon
+		sleep 2
+		/usr/local/sunlight/smon -f /usr/local/sunlight/proc_list
+		echo "Smon Process Has Been Restarted."
+		eval "$write_install_log  Restarted Smon ......"
+		sleep 3
+	fi
+
+	if [ $(ps -ef | grep weed | grep -v grep | wc -l) -gt 0 ];then
+		echo "OK! Seaweedfs Is Running ......"
+		
+		eval "$write_install_log  OK! Seaweedfs Is Running"
+		eval "$write_install_log $weed_curl"
+	else
+		echo "Warning! Seaweedfs Is Not Running, It Should Be Started By Smon,Please Check! "
+		eval "$write_install_log  Warning! Seaweedfs Is Not Running, It Should Be Started By Smon,Please Check!"
+	fi
+fi

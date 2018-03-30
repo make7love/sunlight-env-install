@@ -1,0 +1,61 @@
+[maxscale]
+threads=4
+
+##### Write Service, need to set address
+[server1]
+type=server
+address=addr1
+port=3306
+protocol=MySQLBackend
+sunlight_weight=3
+
+##### Read Service, need to set address
+[server2]
+type=server
+address=addr2
+port=3306
+protocol=MySQLBackend
+sunlight_weight=4
+
+##### Read Service, need to set address
+[server3]
+type=server
+address=addr3
+port=3306
+protocol=MySQLBackend
+sunlight_weight=3
+
+[Galera Monitor]
+type=monitor
+module=galeramon
+servers=server1,server2,server3
+user=root
+passwd=sunlight2010
+
+
+[Read-Write Service]
+type=service
+router=readwritesplit
+servers=server1,server2,server3
+user=root
+passwd=sunlight2010
+max_slave_connections=100%
+enable_root_user=1
+weightby=sunlight_weight
+
+[Read-Write Listener]
+type=listener
+service=Read-Write Service
+protocol=MySQLClient
+port=4006
+
+[MaxAdmin Service]
+type=service
+router=cli
+
+[MaxAdmin Listener]
+type=listener
+service=MaxAdmin Service
+protocol=maxscaled
+socket=default
+port=6603
